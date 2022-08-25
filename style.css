@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color: #291B25;
+    color: #F6F6E9;
+    font-weight: bolder;
+}
+
+.start_btn, .rules-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start_btn button {
+    font-size: 25px;
+    font-weight: bolder;
+    color: #61A6AB;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #F6F6E9;
+    cursor: pointer;
+}
+
+.rules-box{
+    width: 540px;
+    background-color: #F6F6E9;
+    color: #291B25;
+    border-radius: 5px;
+}
+
+.rules-list {
+    list-style: none;
+    line-height: 1.5;
+}
+
+.rules-box .rules-title {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #291B25;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.rules-box .rules-list {
+    padding: 15px 35px;
+}
+
+.rules-box .rules-list .rules {
+    margin: 5px;
+    font-size: 20px;
+
+}
+
+.rules-box .buttons {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid #291B25;
+}
+
+.rules-box .buttons button {
+    margin: 0 5px;
+    height: 50px;
+    width: 110px;
+    border: 1px solid #291B25;
+    background-color: #291B25;
+    color: #F6F6E9;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Coding Quiz</title>
+  <meta name="description" content="Brief quiz tests basic knowledge of HTML, CSS, and Javascript.">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="start_btn"><button>Start Quiz</button></div>
+  <!-- Rules -->
+  <div class="rules-box">
+        <div class="rules-title">
+            <span>Coding Quiz Rules</span>
+        </div>
+        <ul class="rules-list">
+            <li class="rules">1. You have 30 seconds to complete the quiz.</li>
+            <li class="rules">2. Answers cannot be changed once selected.</li>
+            <li class="rules">3. Quiz is complete when all questions are answered or time runs out.</li>
+            <li class="rules">4. When the quiz is complete, please log your initials for the scoreboard.</li>   
+        </ul>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <div class="quiz-box">
+        <header>
+            <div class="quiz-title">Coding Quiz</div>
+            <div class="timer">
+                <div class="time-text">Time Remaining</div>
+                <div class="time-count">30</div>
+            </div>
+        </header>
+        <section>
+            <div class="quiz-question">
+                <span>What does HTML stand for?</span>
+            </div>
+            <div class="quiz-options">
+                <div class="option">
+                    <span>Hyper Text Manual Links</span>
+                    <div class="icon tick"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="option">
+                    <span>Hyper Text Multi Lingual</span>
+                </div>
+                <div class="option">
+                    <span>Hyper Text Markup Language</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
