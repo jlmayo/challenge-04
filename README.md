@@ -41,5 +41,5 @@ You can find my site at [Challenge-04](https://jlmayo.github.io/challenge-04/)
 ## **Completed Project**
 ![Screenshot of Coding Quiz](assets/Start Quiz Screenshot.png)
 ![Screenshot of Coding Quiz Rules](assets/Quiz Rules Screenshot.png)
-!Screenshot of Coding Quiz](assets/Quiz Screenshot.png)
+![Screenshot of Coding Quiz](assets/Quiz Screenshot.png)
 
