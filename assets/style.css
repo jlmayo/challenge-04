@@ -293,6 +293,12 @@ footer .next-btn:hover{
     font-weight: bold;
 }
 
+.quiz-score p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
 .quiz-score .score-text span {
     display: flex;
     margin: 10px 0;
