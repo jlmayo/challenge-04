@@ -220,6 +220,10 @@ section .quiz-options .option:hover {
     border-color: red;
 }
 
+.quiz-options .option.disabled {
+    pointer-events: none;
+}
+
 .quiz-box footer{
     height: 60px;
     width: 100%;

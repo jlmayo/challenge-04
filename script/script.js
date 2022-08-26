@@ -3,6 +3,9 @@ const rulesBox = document.querySelector(".rules-box");
 const quitBtn = rulesBox.querySelector(".buttons .quit");
 const continueBtn = rulesBox.querySelector(".buttons .continue");
 const quizBox = document.querySelector(".quiz-box");
+const timer = quizBox.querySelector(".timer .time-count");
+
+const quizOptions = document.querySelector(".quiz-options");
 
 startBtn.onclick = ()=>{
     rulesBox.classList.add("activeInfo");
@@ -21,6 +24,7 @@ continueBtn.onclick = ()=>{
 
 let questionNumber = 0;
 let questionsAnswered = 1;
+let counter;
 
 const nextButton = quizBox.querySelector(".next-btn");
 
@@ -30,12 +34,12 @@ nextButton.onclick = ()=>{
         questionsAnswered++;
         showQuestions(questionNumber);
         counter(questionsAnswered);
+        startTimer(10);
     }
 }
 
 function showQuestions(index){
     const quizQuestion = document.querySelector(".quiz-question");
-    const quizOptions = document.querySelector(".quiz-options");
     let questionTag = '<span>' + questions[index].num + ". " + questions[index].question + '</span>';
     let optionTag = '<div class="option">' + questions[index].options[0] + '<span></span></div>'
                     + '<div class="option">' + questions[index].options[1] + '<span></span></div>'
@@ -53,14 +57,32 @@ function showQuestions(index){
 function optionSelected(answer){
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionNumber].answer;
+    let allOptions = quizOptions.children.length;
     if (userAnswer == correctAnswer){
-        answer.classList.add(".correct");
+        answer.classList.add("correct");
         console.log("Answer is correct.");
     }else{
-        answer.classList.add(".incorrect");
+        answer.classList.add("incorrect");
         console.log("Answer is incorrect.");
+
+        for (let i = 0; i < allOptions; i++){
+            if(quizOptions.children[i].textContent == correctAnswer){
+                quizOptions.children[i].setAttribute("class", "option correct");
+            }
+        }
     }
-    console.log(correctAnswer);
+
+    for (let i = 0; i < allOptions; i++){
+        quizOptions.children[i].classList.add("disabled");
+    }
+}
+
+function startTimer(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timeCount.textContent(time);
+        time--;
+    }
 }
     
 
