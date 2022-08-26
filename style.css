@@ -208,6 +208,18 @@ section .quiz-options .option:hover {
     margin-bottom: 0px;
 }
 
+.quiz-options .option.correct{
+    color: green;
+    background: #d4edda;
+    border-color: green;
+}
+
+.quiz-options .option.incorrect{
+    color: red;
+    background: rgba(255, 0, 0, 0.382);
+    border-color: red;
+}
+
 .quiz-box footer{
     height: 60px;
     width: 100%;
@@ -217,17 +229,17 @@ section .quiz-options .option:hover {
     justify-content: space-between;
 }
 
-.quiz-box footer .total-score span{
+.quiz-box footer .question-counter span{
     display: flex;
     user-select: none;
 }
 
-.quiz-box footer .total-score span p{
+.quiz-box footer .question-counter span p{
     font-weight: bold;
     padding: 0 5px;
 }
 
-footer .total-score span p:first-child{
+footer .question-counter span p:first-child{
     padding-left: 0px;
 }
 
