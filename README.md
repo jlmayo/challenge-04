@@ -36,8 +36,10 @@ No starter code was provided for this project. I wrote (and rewrote and rewrote)
 The app is very pleasant to look at and the functionality is halfway there.
 
 
-You can find my site at [Challenge-03](https://jlmayo.github.io/challenge-04/)
+You can find my site at [Challenge-04](https://jlmayo.github.io/challenge-04/)
 
 ## **Completed Project**
-![Screenshot of Password Generator](assets/)
+![Screenshot of Coding Quiz](challenge-04/assets/Start Quiz Screenshot.png)
+![Screenshot of Coding Quiz Rules](challenge-04/assets/Quiz Rules Screenshot.png)
+!Screenshot of Coding Quiz](challenge-04/assets/Quiz Screenshot.png)
 
