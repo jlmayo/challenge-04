@@ -19,7 +19,8 @@ body {
 }
 
 .rules-box.activeInfo,
-.quiz-box.activeQuiz {
+.quiz-box.activeQuiz,
+.quiz-score.activeScore {
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -259,6 +260,10 @@ footer .next-btn{
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+footer .next-btn .show{
+    display: none;
 }
 
 footer .next-btn:hover{

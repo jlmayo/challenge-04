@@ -3,7 +3,9 @@ const rulesBox = document.querySelector(".rules-box");
 const quitBtn = rulesBox.querySelector(".buttons .quit");
 const continueBtn = rulesBox.querySelector(".buttons .continue");
 const quizBox = document.querySelector(".quiz-box");
-const timer = quizBox.querySelector(".timer .time-count");
+const timeCounter = quizBox.querySelector(".timer .time-count");
+const timeUp = quizBox.querySelector("header .time-text");
+
 
 const quizOptions = document.querySelector(".quiz-options");
 
@@ -19,14 +21,33 @@ continueBtn.onclick = ()=>{
     rulesBox.classList.remove("activeInfo");
     quizBox.classList.add("activeQuiz");
     showQuestions(0);
-    counter(1);
+    startTimer(20);
 }
 
 let questionNumber = 0;
 let questionsAnswered = 1;
-let counter;
+let countdown;
+let timeValue = 20;
+let userScore = 0;
 
 const nextButton = quizBox.querySelector(".next-btn");
+const quizScore = document.querySelector(".quiz-score");
+const restartQuiz = quizScore.querySelector(".buttons .restart");
+const enterScore = quizScore.querySelector(".buttons .scoring");
+
+restartQuiz.onclick = ()=>{
+    quizBox.classList.add("activeQuiz");
+    quizScore.classList.remove("activeScore");
+    let questionNumber = 0;
+    let questionsAnswered = 1;
+    let timeValue = 20;
+    let userScore = 0;
+    showQuestions(questionNumber);
+    counter(questionsAnswered);
+    clearInterval(countdown);
+    startTimer(timeValue);
+    timeUp.textContent = "Time Remaining";
+}
 
 nextButton.onclick = ()=>{
     if(questionNumber < questions.length - 1){
@@ -34,7 +55,13 @@ nextButton.onclick = ()=>{
         questionsAnswered++;
         showQuestions(questionNumber);
         counter(questionsAnswered);
-        startTimer(10);
+        clearInterval(countdown);
+        startTimer(timeValue);
+        timeUp.textContent = "Time Remaining";
+    }else{
+        clearInterval(countdown);
+        console.log("Questions completed.");
+        showQuizScore();
     }
 }
 
@@ -55,10 +82,13 @@ function showQuestions(index){
 }
 
 function optionSelected(answer){
+    clearInterval(countdown);
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionNumber].answer;
     let allOptions = quizOptions.children.length;
     if (userAnswer == correctAnswer){
+        userScore += 1;
+        console.log(userScore);
         answer.classList.add("correct");
         console.log("Answer is correct.");
     }else{
@@ -77,13 +107,42 @@ function optionSelected(answer){
     }
 }
 
-function startTimer(time){
-    counter = setInterval(timer, 1000);
-    function timer(){
-        timeCount.textContent(time);
-        time--;
+function showQuizScore(){
+    rulesBox.classList.remove("activeInfo");
+    quizBox.classList.remove("activeQuiz");
+    quizScore.classList.add("activeScore");
+    const scoreText = quizScore.querySelector(".score-text");
+    if (userScore > 0){
+        let scoreTag =  '<span>You scored <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>'
+        scoreText.innerHTML = scoreTag;
     }
 }
+
+function startTimer(time){
+    countdown = setInterval(timer, 1000);
+    function timer(){
+        timeCounter.textContent = time;
+        time--;
+        if(time < 0){
+            clearInterval(countdown);
+            timeCounter.textContent = "00";
+            timeUp.textContent = "Time's Up!";
+
+            let correctAnswer = questions[questionNumber].answer;
+            let allOptions = quizOptions.children.length;
+
+            for (let i = 0; i < allOptions; i++){
+                if(quizOptions.children[i].textContent == correctAnswer){
+                    quizOptions.children[i].setAttribute("class", "option correct");
+                }
+            }
+            for (let i = 0; i < allOptions; i++){
+                quizOptions.children[i].classList.add("disabled");
+            }  
+        }
+    }
+}
+
     
 
 function counter(index){ 
